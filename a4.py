@@ -30,6 +30,23 @@ class TTTBoard:
         self.board[pos] = player
         return True
 
+    def has_won(self, player) -> bool:
+        check = player + player + player
+        
+        for x in [0, 3, 6]:
+            s = ""
+            s += self.board[x + 0] + self.board[x + 1] + self.board[x + 2]
+
+            if check == s:
+                return True
+
+        for x in [0, 1, 2]:
+            s = ""
+            s += self.board[x + 0] + self.board[x + 3] + self.board[x + 6]
+
+            if check == s:
+                return True
+        
 
 
 
