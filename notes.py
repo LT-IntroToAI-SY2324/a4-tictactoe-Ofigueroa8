@@ -3,7 +3,7 @@
 # (define-struct dog [fur_color name age favorite_food])
 
 class Dog:
-    # functions that start with ___ are not intended to be called
+    # functions that start with __ are not intended to be called
 
     def __init__(self, n = "", fc = "", a = 0, ff = ""):
         """Creats an instance of the dog class and 

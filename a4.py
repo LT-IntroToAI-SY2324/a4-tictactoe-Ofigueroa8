@@ -2,6 +2,9 @@
 # talking about unimplemented class attributes, don't worry about this as you're working
 
 
+from operator import truediv
+
+
 class TTTBoard:
     """A tic tac toe board
 
@@ -9,8 +12,25 @@ class TTTBoard:
         board - a list of '*'s, 'X's & 'O's. 'X's represent moves by player 'X', 'O's
             represent moves by player 'O' and '*'s are spots no one has yet played on
     """
+    def __init__(self):
+        self.board = ['*'] * 9
 
-    pass
+    def __str__(self):
+        s = ""
+        for x in [0, 3, 6]:
+            s += self.board[x + 0] + " " + self.board[x + 1] + " " + self.board[x + 2] + "\n"
+        return s
+
+    def make_move(self, player, pos) -> bool:
+        # fail if invalid move
+        if pos < 0 or pos > 8 or self.board[pos] != '*':
+            return False
+
+        # otherwise make the move
+        self.board[pos] = player
+        return True
+
+
 
 
 def play_tic_tac_toe() -> None:
